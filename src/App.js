@@ -1,4 +1,6 @@
 import React, { Component, PropTypes } from 'react';
+import { Provider } from 'react-redux';
+import { createStore } from './store';
 import { createStyleSheet, createStyleManager } from 'stylishly';
 import { createPluginRegistry } from 'stylishly/lib/pluginRegistry';
 import vendorPrefixer from 'stylishly-vendor-prefixer';
@@ -10,6 +12,8 @@ import nested from 'stylishly-nested';
 import mediaQueries from 'stylishly-media-queries';
 
 import Home from './pages/Home';
+
+const store = createStore();
 
 export const styleSheet = createStyleSheet('App', () => {
   return {
@@ -63,6 +67,10 @@ export default class App extends Component {
 
   render() {
     this.styleManager.render(styleSheet);
-    return <Home />;
+    return (
+      <Provider store={store}>
+        <Home />
+      </Provider>
+    );
   }
 }

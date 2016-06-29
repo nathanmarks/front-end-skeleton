@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { createStyleSheet } from 'stylishly';
+import { connect } from 'react-redux';
 
 export const styleSheet = createStyleSheet('Home', () => {
   return {
@@ -18,7 +19,7 @@ export const styleSheet = createStyleSheet('Home', () => {
   };
 });
 
-export default class Home extends Component {
+class Home extends Component {
   static contextTypes = {
     styleManager: PropTypes.object.isRequired
   }
@@ -33,3 +34,11 @@ export default class Home extends Component {
     );
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    drawerOpen: state.app.drawerOpen
+  };
+}
+
+export default connect(mapStateToProps)(Home);
