@@ -10,12 +10,18 @@
     "build:babel": "cross-env NODE_ENV=production babel ./src --ignore *.spec.js --out-dir ./build",
     "clean": "rimraf build && rimraf static",
     "lint": "eslint src test && echo \"eslint: no lint errors\"",
+    "start": "node webpack.dev.server.js",
     "test": "cross-env NODE_ENV=test babel-node test/index.js",
     "test:coverage": "cross-env NODE_ENV=test babel-node ./node_modules/istanbul/lib/cli.js cover test/index.js",
     "test:watch": "cross-env NODE_ENV=test babel-node test/watch.js"
   },
+  "dependencies": {
+    "dom-helpers": "^2.4.0",
+    "normalize.css": "^4.1.1"
+  },
   "devDependencies": {
     "app-module-path": "^1.1.0",
+    "autoprefixer": "^6.3.6",
     "babel-cli": "^6.10.1",
     "babel-core": "^6.10.4",
     "babel-eslint": "^6.1.0",
@@ -27,19 +33,22 @@
     "chai": "^3.5.0",
     "coveralls": "^2.11.9",
     "cross-env": "^1.0.8",
+    "css-loader": "^0.23.1",
     "eslint": "^2.13.1",
     "eslint-plugin-babel": "^3.3.0",
     "eslint-plugin-mocha": "^3.0.0",
     "eslint-plugin-react": "^5.2.2",
+    "extract-text-webpack-plugin": "^1.0.1",
     "glob": "^7.0.5",
     "istanbul": "^1.1.0-alpha.1",
     "minimist": "^1.2.0",
     "mocha": "^2.5.3",
     "nodemon": "^1.9.2",
+    "postcss-loader": "^0.9.1",
+    "precss": "^1.4.0",
     "rimraf": "^2.5.2",
-    "webpack": "^1.13.1"
-  },
-  "dependencies": {
-    "dom-helpers": "^2.4.0"
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1"
   }
 }
