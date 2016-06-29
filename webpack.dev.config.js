@@ -8,14 +8,14 @@ module.exports = {
   entry: {
     'main': [
       'webpack-dev-server/client?http://localhost:3000',
-      'webpack/hot/only-dev-server',
+      'webpack/hot/dev-server',
       './src/index'
     ]
   },
   output: {
-    path: path.join(__dirname, 'assets'),
+    path: path.join(__dirname, 'static'),
     filename: 'bundle.js',
-    publicPath: '/assets/'
+    publicPath: '/static/'
   },
   module: {
     loaders: [
@@ -27,6 +27,10 @@ module.exports = {
       {
         test: /\.css$/,
         loader: 'style!css!postcss'
+      },
+      {
+        test: /\.html$/,
+        loader: 'raw'
       }
     ]
   },

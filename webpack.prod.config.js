@@ -11,9 +11,9 @@ module.exports = {
     ]
   },
   output: {
-    path: path.join(__dirname, 'assets'),
+    path: path.join(__dirname, 'static'),
     filename: 'bundle.js',
-    publicPath: '/assets/'
+    publicPath: '/static/'
   },
   module: {
     loaders: [
@@ -25,6 +25,10 @@ module.exports = {
       {
         test: /\.css$/,
         loader: ExtractTextPlugin.extract('style', 'css', 'postcss')
+      },
+      {
+        test: /\.html$/,
+        loader: 'raw'
       }
     ]
   },
