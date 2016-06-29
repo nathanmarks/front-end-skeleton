@@ -7,6 +7,7 @@ module.exports = {
   devtool: 'inline-source-map',
   entry: {
     'main': [
+      'react-hot-loader/patch',
       'webpack-dev-server/client?http://localhost:3000',
       'webpack/hot/dev-server',
       './src/index'
